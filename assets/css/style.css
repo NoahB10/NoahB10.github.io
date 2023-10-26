@@ -10,8 +10,9 @@
 # General
 --------------------------------------------------------------*/
 body {
-  background: #ffffff;
+  background: #1E2F4E;
   color: #898989;
+
   font-family: "Poppins", helvetica;
   font-size: 15px;
   font-weight: 300;
@@ -33,7 +34,7 @@ h6 {
 }
 
 h2 {
-  color: #292929;
+  color: #c8c8c8;
   font-weight: 600;
 }
 
@@ -93,11 +94,11 @@ p {
 }
 
 .section-title {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
 .section-title h2 {
-  font-size: 25px;
+  font-size: 50px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -188,7 +189,7 @@ p {
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
-  background-color: #fff;
+  background-color: #ebebeb;
   top: -100%;
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
 }
@@ -558,7 +559,7 @@ p {
 #about {
   width: 100%;
   height: auto;
-  background: #f7f7f7;
+  background: #1E2F4E;;
   padding-top: 120px;
 }
 
@@ -594,7 +595,7 @@ p {
 # Services
 --------------------------------------------------------------*/
 #services {
-  background: #f7f7f7;
+  background: #1E2F4E;
   position: relative;
   padding-bottom: 80px;
 }
@@ -649,7 +650,7 @@ p {
 
 #portfolio #portfolio-flters {
   padding: 0;
-  margin: 0 auto 35px auto;
+  margin: 0 auto 0px auto;
   list-style: none;
   text-align: center;
   border-radius: 50px;
@@ -665,7 +666,7 @@ p {
   line-height: 1;
   text-transform: uppercase;
   color: #999999;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -799,11 +800,12 @@ p {
 /*--------------------------------------------------------------
 # Journal
 --------------------------------------------------------------*/
+
 #journal,
 #journal-blog {
   height: auto;
   width: 100%;
-  background: #f7f7f7;
+  background: #1E2F4E;
   padding-bottom: 60px;
   position: relative;
 }
@@ -824,7 +826,7 @@ p {
 }
 
 .journal-block .journal-info img {
-  max-width: 100%;
+  width: 310%;
 }
 
 .journal-block .journal-info .journal-txt {
@@ -856,6 +858,7 @@ p {
 /*--------------------------------------------------------------
 # Journal
 --------------------------------------------------------------*/
+/*
 #contact {
   height: auto;
   width: 100%;
@@ -1073,7 +1076,7 @@ blockquote {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #f7f7f7;
+  background: #1E2F4E;
   padding-top: 50px;
   padding-bottom: 50px;
 }
