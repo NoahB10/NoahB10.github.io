@@ -1,0 +1,94 @@
+(define (domain bartender)
+  (:requirements :strips :typing :equality)
+  (:types arm stuff table orders recipe - object
+    shaker cup - containers
+    alch cocktails - liquids
+    containers liquids - stuff 
+   )
+
+; Define all of the relations used in the actions
+  (:predicates  
+        (ontable ?s - stuff)
+		(holding ?h - arm ?s - stuff) ; can hold containers
+        (handempty ?h - arm)
+		(clean ?s - containers) ; liquids are always not clean. doesnt matter
+		(contains ?m - containers ?s - liquids)
+		(order ?c - cocktails ?m - shaker) ; put 1 cocktail into 1 mixer
+		(recipe ?j - liquids ?c - cocktails)
+		(completed ?o - orders)
+		;(menu ?c - cocktails ?o - orders)
+		(done))
+
+  (:action grab
+        :parameters (?h - arm ?s - alch)
+        :precondition (and (ontable ?s) (handempty ?h))
+         :effect (and (not(ontable ?s))
+                      (not(handempty ?h))
+                      (holding ?h ?s)))
+                      
+  (:action release ; release the alch only if a hand is needed
+        :parameters (?h1 ?h2 - arm ?s1 ?s2 - alch ?m - shaker)
+        :precondition (and (ontable ?s2)
+                           (not (= ?h1 ?h2))
+                           (not (= ?s1 ?s2))
+                           (holding ?h1 ?s1)
+                           (not(handempty ?h2))
+                           (contains ?m ?s1)) ; works if the alch is poured into 1 mixer
+        :effect (and (ontable ?s1)
+                     (handempty ?h1)
+			         (not(holding ?h1 ?s1))))
+
+; need this action in order to pour more than 1 shot at a time if possible
+   (:action pour1
+        :parameters (?h - arm ?s - alch ?m - shaker ?c - cocktails ?o - orders)
+        :precondition (and (holding ?h ?s)
+                           (recipe ?s ?c)
+                           (= ?c ?o)
+                           ;(menu ?c ?o)
+                           (clean ?m)
+                           (not(contains ?m ?s)))
+        :effect (and (contains ?m ?s) 
+                     (order ?c ?m)
+                     (not (clean ?m))))
+   (:action pour2
+        :parameters (?h - arm ?s - alch ?m - shaker ?c - cocktails ?o - orders)
+        :precondition (and (holding ?h ?s)
+                           (recipe ?s ?c)
+                           (= ?c ?o)
+                           ;(menu ?c ?o)
+                           (order ?c ?m)
+                           (not(contains ?m ?s)))
+        :effect (and (contains ?m ?s)))
+        
+   (:action serve
+        :parameters (?h - arm ?m - shaker ?g - cup ?c - cocktails ?s1 ?s2 - alch ?o - orders)
+        :precondition (and (contains ?m ?s1)
+            			   (contains ?m ?s2)
+            			   (handempty ?h)
+            			   (not (= ?s1 ?s2))
+            			   (order ?c ?m)
+            			   (= ?c ?o)
+            			   ;(menu ?c ?o)
+            			   (recipe ?s1 ?c)
+            			   (recipe ?s2 ?c)
+            			   (clean ?g))
+        :effect (and (contains ?g ?c)
+                     (clean ?m)
+                     (not(order ?c ?m))
+                     (completed ?o)
+                     (not(contains ?m ?s1))
+                     (not(contains ?m ?s2))
+			         (not(clean ?g)))
+	)
+    (:action finished
+    	    :parameters (?o - orders)
+    	    :precondition (and (forall (?o - orders) (completed ?o))) ; can put in conditionon that calls done after 1 completed
+    	    :effect (done))
+)
+			         
+
+	    
+	    
+	    
+	    
+	    

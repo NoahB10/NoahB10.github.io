@@ -1,0 +1,39 @@
+(define (problem Tes1)
+    (:domain bartender)
+    (:objects
+	shake1 shake2 - shaker
+	cup1 cup2 cup3 - cup
+	vodka whiskey rum soda juice - alch
+	armL armR - arm	
+	RandS VandJ WandJ - cocktails ; same thing as orders
+	RandS WandJ WandJ - orders 
+	)
+	
+(:init
+    (ontable shake1)  
+    (ontable shake2)
+   ;(ontable shake3)
+    (ontable cup1) 
+    (ontable cup2) 
+    (ontable cup3)
+    (clean shake1)  
+    (clean shake2)
+   ; (clean shake3)
+    (clean cup1) 
+    (clean cup2) 
+    (clean cup3)
+    (ontable vodka) 
+    (ontable whiskey)
+    (ontable rum) 
+    (ontable soda) 
+    (ontable juice)
+    (handempty armL) 
+    (handempty armR)
+    (recipe rum RandS)
+    (recipe soda RandS)
+    (recipe vodka VandJ)
+    (recipe juice VandJ)
+    (recipe juice WandJ)
+    (recipe whiskey WandJ))
+ (:goal
+  (done)))
