@@ -103,6 +103,7 @@ p {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px;
+  margin-top: -50px;
 }
 
 .form-control {
@@ -833,7 +834,7 @@ p {
   display: inline-block;
   height: auto;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 #journal .journal-block .journal-info {
