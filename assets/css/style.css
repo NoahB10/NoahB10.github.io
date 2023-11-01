@@ -594,15 +594,15 @@ p {
   font-family: "Playfair Display", serif;
   font-size: 28px;
   text-align: left;
-  margin-left: -40%;
-  margin-top: -3%;
+  margin-left: 20%;
+  margin-top: -20%;
 }
 
 #about .about-descr .separator {
-  max-width: 140%;
+  max-width: 100%;
   margin-bottom: 0;
   text-align: left;
-  margin-left: -40%;
+  margin-left: 20%;
 }
 
 /*--------------------------------------------------------------
