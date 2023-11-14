@@ -14,9 +14,10 @@
 .bx
 {
     font-family: 'boxicons' !important;
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-variant: normal;
+    font-size: 40px;
     line-height: 1;
     text-rendering: auto;
     display: inline-block;
