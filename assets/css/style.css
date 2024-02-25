@@ -127,7 +127,7 @@ p {
 
 .paddsection {
   padding-top: 10px; /* modifies the height of the projects section with regard to the automatic click */
-  padding-bottom: 90px;
+  padding-bottom: 40px;
 }
 
 .paddsections {
@@ -833,7 +833,7 @@ p {
   display: inline-block;
   height: auto;
   width: 100%;
-  margin-top: 5px;
+  margin-top: -18px;
 }
 
 #journal .journal-block .journal-info {
